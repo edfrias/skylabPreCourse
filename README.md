@@ -1,2 +1,2 @@
 # skylabPreCourse
-A precourse exercises repo
+A Skylab Coders Web development bootcamp precourse exercises repo
