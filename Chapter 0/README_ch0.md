@@ -1,4 +1,4 @@
-**Exercises:** // faltan 5
+**Exercises:**
 
 a) Declara tu nombre y muéstralo por consola:
 
