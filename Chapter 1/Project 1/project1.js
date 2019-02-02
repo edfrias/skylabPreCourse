@@ -9,7 +9,7 @@ const calculator = (...newArgs) => {
     }
   }
 
-  if (newArgs.length <= 1 && isInvalid) {
+  if (newArgs.length === 1 && isInvalid) {
     console.log('Sorry you entered an invalid input');
   } else if (newArgs.length === 1 && !isInvalid) {
     const oneParamResult = Math.sqrt(newArgs[0]);
