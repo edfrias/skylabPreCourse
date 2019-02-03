@@ -17,12 +17,11 @@ let user = prompt("What's your name?");
 console.log(`Hello ${user}, nice to see you!`);
 console.log('---');
 
-for (let i = 0; i < flights.length; i++) {
+for (let i = 0; i < flights.length; i++) { // TODO: Maybe using here a forEach will make this more readable or at least this https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
   console.log(`The flight with an origin from: ${flights[i].from} to destination ${flights[i].to}, costs ${flights[i].cost} ${flights[i].scale ? 'and has stopovers' : 'and no stopovers'}.`);
 }
 
-let summatory = 0;
-
+let summatory = 0; // TODO: try to improve this by using array.reduce
 for(let j = 0; j < flights.length; j++){
   summatory += parseInt(flights[j].cost, 10 );
 }
@@ -33,6 +32,7 @@ console.log(`The average cost for today's flights is ${average}`);
 console.log('---');
 let hasScales = 0;
 
+// TODO: Improve this by using array.filter
 for (let x = 0; x < flights.length; x++) {
   if (flights[x].scale === true) {
     hasScales += 1;
