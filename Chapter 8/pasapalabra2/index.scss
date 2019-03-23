@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@mixin distribute-on-circle(
+  $nb-items,
+  $circle-size,
+  $item-size,
+) {
+  $half-item: ($item-size / 2);
+  $half-parent: ($circle-size / 2);
+
+  position: relative; /* 1 */
+  width:  $circle-size;
+  height: $circle-size;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none; /* 2 */
+  box-sizing: content-box; /* 3 */
+
+  > * { /* 4 */
+    display: block;
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    width:  $item-size;
+    height: $item-size;
+    margin: -$half-item;
+  }
+
+  $angle: (360 / $nb-items);
+  $rot: -90;
+
+  @for $i from 1 through $nb-items {
+    > :nth-of-type(#{$i}) {
+      transform: rotate($rot * 1deg) translate($half-parent) rotate($rot * -1deg);
+    }
+
+    $rot: ($rot + $angle);
+  }
+}
+
+
+body {
+  background-color: #008793;
+}
+
+.letters {
+  @include distribute-on-circle(27, 500px, 36px);
+  margin: 5em auto 0;
+  list-style: none;
+}
+
+.letter {
+  span {
+    display: inline-block;
+    background-color: #004d7a;
+    border: 2px solid white;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    height: 36px;
+    width: 36px;
+    line-height: 33px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &.success {
+    span {
+      background-color: #00bf72;
+    }
+  }
+
+  &.error {
+    span {
+      background-color: #a20e32;
+    }
+  }
+}
